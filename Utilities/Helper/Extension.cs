@@ -1,5 +1,8 @@
 ﻿using System;
-namespace Utilities
+using System.Collections.Generic;
+using System.Text;
+
+namespace Utilities.Helper
 {
     public class Extension
     {
