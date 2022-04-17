@@ -6,7 +6,7 @@ using Entities.Models;
 
 namespace Business.Interfaces
 {
-    public class IChampionship 
+    public interface IChampionship 
     {
         Championship Create(Championship championship);
         Championship Update(int Id, Championship championship);

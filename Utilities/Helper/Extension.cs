@@ -12,9 +12,9 @@ namespace Utilities.Helper
             Console.WriteLine(message);
             Console.ResetColor();
         }
-        public enum Menu
+        public enum MenuForChampionship
         {
-
+            CreateChampionship=1, UpdateChampionship, RemoveChampionship, GetChampionship, GetAllChampionships
         }
     }
 }
