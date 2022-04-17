@@ -28,7 +28,7 @@ namespace ChampionshipApp
                 {
                     switch (input)
                     {
-                        case (int)Extension.MenuForChampionship.CreateChampionship:
+                        case (int)Extension.MenuForChampionship.CreateChampionship: Console.Clear();
                             championshipController.CreateChampionship();
                             break;
                         case (int)Extension.MenuForChampionship.UpdateChampionship:

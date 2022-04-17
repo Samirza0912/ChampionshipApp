@@ -1,4 +1,5 @@
 ﻿using Business.Services;
+using DataAccess;
 using Entities.Models;
 using System;
 using Utilities.Helper;
@@ -51,24 +52,23 @@ namespace ChampionshipApp.Controllers
         }
         public void UpdateChampionship()
         {
-        updateChampionship:
-            Extension.Print(ConsoleColor.Green, "Enter Championship's ID: ");
+            updateChampionship:
+            Extension.Print(ConsoleColor.Green, "Enter ID: ");
             int id;
-            bool IsExist = int.TryParse(Console.ReadLine(), out id);
-            Extension.Print(ConsoleColor.Green, "Enter Championship's Name: ");
+            bool isExist = int.TryParse(Console.ReadLine(), out id);
+            Extension.Print(ConsoleColor.Green, "Enter new Championship's Name: ");
             string name = Console.ReadLine();
-            if (IsExist)
+            if (isExist)
             {
                 Championship championship = new Championship
                 {
-                    Name = name,
+                    Name = name
                 };
-                championshipService.Update(id, championship);
-                Extension.Print(ConsoleColor.Green, $"The Championship has been Updated");
+                Extension.Print(ConsoleColor.Green, $"New championship's name: {championshipService.Update(id, championship).Name}");
             }
             else
             {
-                Extension.Print(ConsoleColor.Red, "Please write correctly");
+                Extension.Print(ConsoleColor.Red, "Please enter correctly");
                 goto updateChampionship;
             }
         }
