@@ -17,9 +17,10 @@ namespace DataAccess.Repositories
             DataContext.Teams.Remove(entity);
             return true;
         }
-        public List<Team> GetAll(Predicate<Team> filter = null)
+        public List<Team> GetAll(Predicate<Team> filter=null)
         {
-            return DataContext.Teams.FindAll(filter);
+            return filter == null ? DataContext.Teams :
+             DataContext.Teams.FindAll(filter);
         }
         public Team GetOne(Predicate<Team> filter = null)
         {
@@ -31,10 +32,6 @@ namespace DataAccess.Repositories
             Team isExist = GetOne(s => s.Id == entity.Id);
             isExist = entity;
             return true;
-        }
-        List<Team> IRepository<Team>.GetAll(Predicate<Team> filter)
-        {
-            throw new NotImplementedException();
         }
     }
 }

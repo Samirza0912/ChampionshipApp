@@ -14,7 +14,11 @@ namespace Utilities.Helper
         }
         public enum MenuForChampionship
         {
-            CreateChampionship=1, UpdateChampionship, RemoveChampionship, GetChampionship, GetAllChampionships
+            CreateChampionship=1, UpdateChampionship, RemoveChampionship,GetAllChampionships
+        }
+        public enum MenuForTeam
+        {
+            AddTeam = 5, UpdateTeam, RemoveTeam,GetAllTeams
         }
     }
 }

@@ -49,5 +49,28 @@ namespace ChampionshipApp.Controllers
             int id = int.Parse(Console.ReadLine());
             Extension.Print(ConsoleColor.Green, $"{championshipService.Delete(id).Name}");
         }
+        public void UpdateChampionship()
+        {
+        updateChampionship:
+            Extension.Print(ConsoleColor.Green, "Enter Championship's ID: ");
+            int id;
+            bool IsExist = int.TryParse(Console.ReadLine(), out id);
+            Extension.Print(ConsoleColor.Green, "Enter Championship's Name: ");
+            string name = Console.ReadLine();
+            if (IsExist)
+            {
+                Championship championship = new Championship
+                {
+                    Name = name,
+                };
+                championshipService.Update(id, championship);
+                Extension.Print(ConsoleColor.Green, $"The Championship has been Updated");
+            }
+            else
+            {
+                Extension.Print(ConsoleColor.Red, "Please write correctly");
+                goto updateChampionship;
+            }
+        }
     }
 }
