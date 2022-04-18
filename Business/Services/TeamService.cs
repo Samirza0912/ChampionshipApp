@@ -31,27 +31,29 @@ namespace Business.Services
             _teamRepository.Delete(isExist);
             return isExist;
         }
-
         public Team GetTeam(string name)
         {
             return _teamRepository.GetOne(g => g.Name == name);
         }
-
         public Team Update(int Id, Team team)
         {
-            return _teamRepository.GetOne();
+            Team isExsit = _teamRepository.GetOne(g => g.Id == Id);
+            if (isExsit == null)
+            {
+                return null;
+            }
+            isExsit.Name = team.Name;
+            _teamRepository.Update(team);
+            return team;
         }
-
         public List<Team> GetAll()
         {
             return _teamRepository.GetAll();
         }
-
         public Team GetTeam(int id)
         {
             return _teamRepository.GetOne(g => g.Id == id);
         }
-
         public List<Team> GetAll(string name = null)
         {
             throw new NotImplementedException();

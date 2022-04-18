@@ -1,5 +1,6 @@
 ﻿using System;
 using ChampionshipApp.Controllers;
+using Entities.Models;
 using Utilities.Helper;
 
 namespace ChampionshipApp
@@ -11,12 +12,12 @@ namespace ChampionshipApp
             Extension.Print(ConsoleColor.Green, "Welcome to our Committie");
             while (true)
             {
-                ChampionshipController championshipController = new ChampionshipController();
+                ChampionshipController championshipService = new ChampionshipController();
                 TeamController teamController = new TeamController();
-                Extension.Print(ConsoleColor.Cyan, "1-Create Championship\n" +
+                Extension.Print(ConsoleColor.Magenta, "1-Create Championship\n" +
                     "2-Update Championship\n" +
                     "3-Remove Championship by ID\n" +
-                    "4-GetAll Championship\n" +
+                    "4-GetAll Championships\n" +
                     "5-Add Team\n" +
                     "6-Update Team\n" +
                     "7-Remove Team by ID\n" +
@@ -28,23 +29,24 @@ namespace ChampionshipApp
                 {
                     switch (input)
                     {
+                        
                         case (int)Extension.MenuForChampionship.CreateChampionship: Console.Clear();
-                            championshipController.CreateChampionship();
+                            championshipService.CreateChampionship();
                             break;
                         case (int)Extension.MenuForChampionship.UpdateChampionship:
-                            championshipController.UpdateChampionship();
+                            championshipService.Update();
                             break;
                         case (int)Extension.MenuForChampionship.RemoveChampionship:
-                            championshipController.RemoveChampionship();
+                            championshipService.RemoveChampionship();
                             break;
                         case (int)Extension.MenuForChampionship.GetAllChampionships:
-                            championshipController.GetAllChampionships();
+                            championshipService.GetAllChampionships();
                             break;
                         case (int)Extension.MenuForTeam.AddTeam:
                             teamController.CreateTeam();
                             break;
                         case (int)Extension.MenuForTeam.UpdateTeam:
-                            teamController.UpdateTeam();
+                            teamController.Update();
                             break;
                         case (int)Extension.MenuForTeam.RemoveTeam:
                             teamController.RemoveTeam();

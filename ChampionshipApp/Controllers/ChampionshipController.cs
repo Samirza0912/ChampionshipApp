@@ -50,9 +50,9 @@ namespace ChampionshipApp.Controllers
             int id = int.Parse(Console.ReadLine());
             Extension.Print(ConsoleColor.Green, $"{championshipService.Delete(id).Name}");
         }
-        public void UpdateChampionship()
+        internal void Update()
         {
-            updateChampionship:
+        updateChampionship:
             Extension.Print(ConsoleColor.Green, "Enter ID: ");
             int id;
             bool isExist = int.TryParse(Console.ReadLine(), out id);
@@ -72,5 +72,11 @@ namespace ChampionshipApp.Controllers
                 goto updateChampionship;
             }
         }
+        public Championship GetOne(Predicate<Championship> filter = null)
+        {
+            return filter == null ? DataContext.Championships[0] :
+                DataContext.Championships.Find(filter);
+        }
     }
+    
 }

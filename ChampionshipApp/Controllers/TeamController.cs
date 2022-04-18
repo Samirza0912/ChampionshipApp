@@ -45,7 +45,7 @@ namespace ChampionshipApp.Controllers
             int id = int.Parse(Console.ReadLine());
             Extension.Print(ConsoleColor.Green, $"{teamService.Delete(id).Name}");
         }
-        public void UpdateTeam()
+        public void Update()
         {
             updateTeam:
             Extension.Print(ConsoleColor.Green, "Enter Team's ID: ");
